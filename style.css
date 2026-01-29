@@ -266,10 +266,10 @@ h1 {
 }
 
 /* Posiciones DESKTOP */
-.pos-1 { top: 15%; left: 0%; animation-delay: 0s; }
+.pos-1 { top: 20%; left: 12%; animation-delay: 0s; }
 .pos-2 { top: 20%; right: 0%; animation-delay: 1.5s; }
 .pos-3 { bottom: 25%; left: 5%; animation-delay: 0.5s; }
-.pos-4 { bottom: 15%; right: 10%; animation-delay: 2s; }
+.pos-4 { bottom: 25%; right: 20%; animation-delay: 2s; }
 
 .glass-pill i { 
     color: white; 
@@ -454,10 +454,10 @@ h1 {
     }
 
     /* Reubicamos las posiciones para pantalla chica */
-    .pos-1 { top: 0%; left: 2%; }       /* Arriba Izq */
+    .pos-1 { top: 10%; left: 5%; }       /* Arriba Izq */
     .pos-2 { top: 5%; right: 2%; }      /* Arriba Der */
     .pos-3 { bottom: 10%; left: 2%; }   /* Abajo Izq */
-    .pos-4 { bottom: 5%; right: 2%; }   /* Abajo Der */
+    .pos-4 { bottom: 25%; right: 5%; }   /* Abajo Der */
 
     /* Agregá esto para ocultar la barra en celular y dejar solo el touch */
     .scrolling-wrapper {
