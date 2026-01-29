@@ -1,0 +1,339 @@
+:root {
+    --bg-color: #0d0015;
+    --purple-main: #3b0a45;
+    --neon-pink: #ff007f;
+    --neon-cyan: #00f3ff;
+    --text-white: #ffffff;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-white);
+    overflow-x: hidden; /* Evita scroll horizontal */
+}
+
+/* --- FONDO AMBIENT (Esferas de luz) --- */
+.blur-sphere {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: -1;
+    opacity: 0.6;
+}
+
+.sphere-1 {
+    width: 300px;
+    height: 300px;
+    background: var(--purple-main);
+    top: -50px;
+    left: -100px;
+}
+
+.sphere-2 {
+    width: 400px;
+    height: 400px;
+    background: #1a0b2e;
+    bottom: 0;
+    right: -100px;
+    opacity: 0.8;
+}
+
+/* --- NAVBAR --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    width: 100%;
+    height: 80px; /* Altura fija para calcular el resto de pantalla */
+    z-index: 100;
+}
+
+.brand-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: white;
+}
+
+.nav-logo {
+    height: 45px;
+    width: auto;
+    filter: drop-shadow(0 0 8px rgba(255, 0, 127, 0.3));
+}
+
+.brand-text {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+}
+
+.dot { color: var(--neon-pink); }
+
+.socials-nav a {
+    color: white;
+    margin-left: 20px;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.socials-nav a:hover { color: var(--neon-cyan); }
+
+/* --- HERO SECTION (Ajustada a Pantalla) --- */
+.hero-container {
+    /* Ocupa exactamente el alto de pantalla MENOS el navbar (80px) */
+    min-height: calc(100vh - 80px); 
+    display: flex;
+    flex-wrap: wrap; 
+    padding: 0 5%;
+    align-items: center; 
+    position: relative;
+    overflow: hidden; /* Corta cualquier elemento que se quiera salir */
+}
+
+/* Columna Izquierda (Texto) */
+.content-side {
+    flex: 1;
+    min-width: 300px;
+    padding-right: 2rem;
+    z-index: 10;
+}
+
+.subtitle {
+    color: var(--neon-cyan);
+    letter-spacing: 3px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem; /* Tamaño controlado */
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+.gradient-text {
+    background: linear-gradient(to right, #fff, #a259ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.description {
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 2rem;
+    max-width: 480px;
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+/* Botones */
+.cta-group {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, var(--neon-pink), #b000ff);
+    color: white;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow: 0 10px 20px rgba(176, 0, 255, 0.3);
+    transition: transform 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-secondary {
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(176, 0, 255, 0.5); }
+.btn-secondary:hover { border-color: white; background: rgba(255,255,255,0.1); }
+
+/* Estadísticas */
+.stats-row {
+    display: flex;
+    gap: 2.5rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 1.5rem;
+}
+
+.stat-item h3 { font-size: 1.5rem; font-family: 'Orbitron', sans-serif;}
+.stat-item p { font-size: 0.8rem; color: rgba(255,255,255,0.5); letter-spacing: 1px; }
+
+/* --- COLUMNA DERECHA (VISUAL) --- */
+.visual-side {
+    flex: 1;
+    min-width: 300px;
+    height: auto; /* Altura flexible */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.glow-circle {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--neon-cyan), var(--purple-main));
+    filter: blur(70px);
+    position: absolute;
+    opacity: 0.3;
+    z-index: 0;
+    animation: pulse 6s infinite;
+}
+
+/* CAPA 1: Planeta (Fondo) */
+.planet-img {
+    position: absolute;
+    width: 200px;
+    top: 0%;
+    right: 5%;
+    z-index: 1; 
+    opacity: 0.9;
+    filter: drop-shadow(0 0 20px rgba(88, 28, 135, 0.5));
+    animation: floatPlanet 12s ease-in-out infinite alternate;
+}
+
+/* CAPA 2: Cohete (Frente) */
+.main-rocket {
+    width: 100%;
+    max-width: 380px; /* Controla que no sea gigante */
+    position: relative;
+    z-index: 2; 
+    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
+    animation: floatRocket 6s ease-in-out infinite;
+}
+
+/* Tarjetas Flotantes (Glass) */
+.float-card {
+    position: absolute;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 10px 20px;
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    z-index: 3;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    font-size: 0.9rem;
+}
+
+.card-1 { bottom: 10%; left: 5%; animation: floatCard 8s infinite ease-in-out; }
+.card-2 { top: 10%; right: 5%; animation: floatCard 7s infinite ease-in-out reverse; }
+
+/* --- LINKS SECTION --- */
+.links-section {
+    padding: 4rem 5%;
+    text-align: center;
+    background: rgba(0,0,0,0.2); /* Fondo sutil para separar */
+}
+
+.links-section h2 { margin-bottom: 2.5rem; letter-spacing: 4px; font-size: 1.5rem; color: var(--neon-cyan); }
+
+.grid-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.grid-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 20px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.grid-card i { font-size: 2rem; margin-bottom: 15px; color: var(--neon-cyan); transition: 0.3s; }
+
+.grid-card:hover {
+    background: rgba(255,255,255,0.08);
+    transform: translateY(-8px);
+    border-color: var(--neon-pink);
+    box-shadow: 0 10px 30px rgba(255, 0, 127, 0.2);
+}
+.grid-card:hover i { color: var(--neon-pink); transform: scale(1.1); }
+
+/* --- ANIMACIONES --- */
+@keyframes floatRocket {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes floatPlanet {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-15px) rotate(5deg); }
+}
+
+@keyframes floatCard {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.1); opacity: 0.5; }
+}
+
+/* --- RESPONSIVE (CELULAR) --- */
+@media (max-width: 900px) {
+    .navbar { padding: 1rem 5%; }
+    
+    .hero-container { 
+        min-height: auto; 
+        padding-top: 2rem;
+        padding-bottom: 4rem;
+        flex-direction: column-reverse; /* Imagen arriba en código, pero visualmente abajo en columa */
+        text-align: center;
+    }
+    
+    .content-side { padding-right: 0; margin-top: 2rem; }
+    .stats-row { justify-content: center; }
+    .cta-group { justify-content: center; }
+    
+    .visual-side { width: 100%; min-height: 350px; }
+    .main-rocket { width: 65%; max-width: 300px; }
+    .planet-img { width: 150px; top: 0; right: 10%; }
+    
+    /* Reubicar cards flotantes en móvil para que no molesten */
+    .card-1 { left: 5%; bottom: 0%; }
+    .card-2 { right: 5%; top: 5%; }
+    
+    h1 { font-size: 2.5rem; }
+}
