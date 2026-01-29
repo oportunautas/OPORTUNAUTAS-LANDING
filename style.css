@@ -15,18 +15,15 @@
 }
 
 body {
-    /* Reemplazamos 'Outfit' por el stack nativo estilo iOS */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    
     background-color: var(--bg-color);
     color: var(--text-white);
     overflow-x: hidden;
-    /* Agregamos esto para que la letra se vea más nítida, típico de Apple */
     -webkit-font-smoothing: antialiased; 
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* --- FONDO AMBIENT (Esferas de luz) --- */
+/* --- FONDO AMBIENT --- */
 .blur-sphere {
     position: absolute;
     border-radius: 50%;
@@ -59,7 +56,7 @@ body {
     align-items: center;
     padding: 1rem 5%;
     width: 100%;
-    height: 80px; /* Altura fija para calcular el resto de pantalla */
+    height: 80px;
     z-index: 100;
 }
 
@@ -95,19 +92,17 @@ body {
 
 .socials-nav a:hover { color: var(--neon-cyan); }
 
-/* --- HERO SECTION (Ajustada a Pantalla) --- */
+/* --- HERO SECTION --- */
 .hero-container {
-    /* Ocupa exactamente el alto de pantalla MENOS el navbar (80px) */
-    min-height: calc(100vh - 80px); 
+    min-height: calc(100vh - 80px);
     display: flex;
     flex-wrap: wrap; 
     padding: 0 5%;
     align-items: center; 
     position: relative;
-    overflow: hidden; /* Corta cualquier elemento que se quiera salir */
+    overflow: hidden;
 }
 
-/* Columna Izquierda (Texto) */
 .content-side {
     flex: 1;
     min-width: 300px;
@@ -123,17 +118,18 @@ body {
     margin-bottom: 0.8rem;
 }
 
-h2 {
-    /* Reemplazamos 'Outfit' por el stack nativo estilo iOS */
+h1 {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 3rem; /* Tamaño controlado */
+    font-size: 3rem; 
     line-height: 1.1;
     margin-bottom: 1rem;
+    font-weight: 800;
 }
 
 .gradient-text {
     background: linear-gradient(to right, #fff, #a259ff);
     -webkit-background-clip: text;
+    background-clip: text; 
     -webkit-text-fill-color: transparent;
 }
 
@@ -145,11 +141,12 @@ h2 {
     font-size: 1rem;
 }
 
-/* Botones */
+/* --- BOTONES --- */
 .cta-group {
     display: flex;
     gap: 1rem;
     margin-bottom: 2.5rem;
+    flex-wrap: wrap;
 }
 
 .btn-primary {
@@ -166,17 +163,28 @@ h2 {
     gap: 10px;
 }
 
-.btn-secondary {
-    border: 1px solid rgba(255,255,255,0.3);
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(176, 0, 255, 0.5); }
+
+/* Botones Glass */
+.btn-glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     color: white;
     padding: 12px 28px;
     border-radius: 50px;
     text-decoration: none;
     transition: 0.3s;
+    font-weight: 500;
 }
 
-.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(176, 0, 255, 0.5); }
-.btn-secondary:hover { border-color: white; background: rgba(255,255,255,0.1); }
+.btn-glass:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--neon-cyan);
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+}
 
 /* Estadísticas */
 .stats-row {
@@ -193,7 +201,8 @@ h2 {
 .visual-side {
     flex: 1;
     min-width: 300px;
-    height: auto; /* Altura flexible */
+    height: auto;
+    min-height: 500px; 
     position: relative;
     display: flex;
     justify-content: center;
@@ -212,54 +221,129 @@ h2 {
     animation: pulse 6s infinite;
 }
 
-/* CAPA 1: Planeta (Fondo) */
 .planet-img {
     position: absolute;
     width: 200px;
-    top: 0%;
-    right: 5%;
+    top: 10%;
+    right: 15%;
     z-index: 1; 
     opacity: 0.9;
     filter: drop-shadow(0 0 20px rgba(88, 28, 135, 0.5));
     animation: floatPlanet 12s ease-in-out infinite alternate;
 }
 
-/* CAPA 2: Cohete (Frente) */
 .main-rocket {
     width: 100%;
-    max-width: 380px; /* Controla que no sea gigante */
+    max-width: 380px;
     position: relative;
     z-index: 2; 
     filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
     animation: floatRocket 6s ease-in-out infinite;
 }
 
-/* Tarjetas Flotantes (Glass) */
-.float-card {
-    position: absolute;
+/* --- TARJETAS FLOTANTES --- */
+.glass-pill {
     background: var(--glass-bg);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    padding: 10px 20px;
-    border-radius: 16px;
+    padding: 12px 25px;
+    font-size: 1rem;
+    border-radius: 25px;
+    gap: 10px;
     border: 1px solid var(--glass-border);
     display: flex;
     align-items: center;
-    gap: 10px;
     font-weight: 500;
-    z-index: 3;
+    color: white;
     box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-    font-size: 0.9rem;
+    cursor: default;
+    z-index: 5;
 }
 
-.card-1 { bottom: 10%; left: 5%; animation: floatCard 8s infinite ease-in-out; }
-.card-2 { top: 10%; right: 5%; animation: floatCard 7s infinite ease-in-out reverse; }
+.glass-pill.floating {
+    position: absolute;
+    animation: floatCard 6s ease-in-out infinite;
+}
+
+/* Posiciones Desktop */
+.pos-1 { top: 15%; left: 0%; animation-delay: 0s; }
+.pos-2 { top: 20%; right: 0%; animation-delay: 1.5s; }
+.pos-3 { bottom: 25%; left: 5%; animation-delay: 0.5s; }
+.pos-4 { bottom: 15%; right: 10%; animation-delay: 2s; }
+
+/* AQUÍ EL CAMBIO: Iconos BLANCOS en lugar de cyan */
+.glass-pill i { 
+    color: white; 
+}
+
+/* --- SECCIÓN EQUIPO --- */
+.team-section {
+    padding: 4rem 5%;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.team-section h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    color: white;
+    text-shadow: 0 0 15px var(--neon-pink);
+    margin-bottom: 3rem;
+    letter-spacing: 2px;
+}
+
+.team-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.team-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--neon-pink);
+    box-shadow: 0 10px 30px rgba(255, 0, 127, 0.2);
+}
+
+.member-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid var(--neon-cyan);
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.member-photo img { width: 100%; height: 100%; object-fit: cover; }
+.member-photo i { font-size: 2.5rem; color: rgba(255, 255, 255, 0.5); }
+
+.team-card h3 { font-size: 1.1rem; margin-bottom: 5px; color: white; }
+.role { font-size: 0.85rem; color: var(--neon-pink); font-weight: 300; letter-spacing: 1px; }
 
 /* --- LINKS SECTION --- */
 .links-section {
     padding: 4rem 5%;
     text-align: center;
-    background: rgba(0,0,0,0.2); /* Fondo sutil para separar */
+    background: rgba(0,0,0,0.2);
 }
 
 .links-section h2 { margin-bottom: 2.5rem; letter-spacing: 4px; font-size: 1.5rem; color: var(--neon-cyan); }
@@ -287,34 +371,23 @@ h2 {
 }
 
 .grid-card i { font-size: 2rem; margin-bottom: 15px; color: var(--neon-cyan); transition: 0.3s; }
-
-.grid-card:hover {
-    background: rgba(255,255,255,0.08);
-    transform: translateY(-8px);
-    border-color: var(--neon-pink);
-    box-shadow: 0 10px 30px rgba(255, 0, 127, 0.2);
-}
+.grid-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-8px); border-color: var(--neon-pink); box-shadow: 0 10px 30px rgba(255, 0, 127, 0.2); }
 .grid-card:hover i { color: var(--neon-pink); transform: scale(1.1); }
 
 /* --- ANIMACIONES --- */
-@keyframes floatRocket {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-}
+@keyframes floatRocket { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+@keyframes floatPlanet { 0% { transform: translateY(0) rotate(0deg); } 100% { transform: translateY(-15px) rotate(5deg); } }
+@keyframes floatCard { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.3; } 50% { transform: scale(1.1); opacity: 0.5; } }
+@keyframes twinkle { 0%, 100% { opacity: 0.3; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1.2); } }
 
-@keyframes floatPlanet {
-    0% { transform: translateY(0) rotate(0deg); }
-    100% { transform: translateY(-15px) rotate(5deg); }
+/* --- FONDO ESTELAR --- */
+.stars-container {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; overflow: hidden;
 }
-
-@keyframes floatCard {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 0.3; }
-    50% { transform: scale(1.1); opacity: 0.5; }
+.star {
+    position: absolute; background: white; border-radius: 50%; opacity: 0.8; box-shadow: 0 0 4px rgba(255, 255, 255, 0.8); animation: twinkle infinite ease-in-out;
 }
 
 /* --- RESPONSIVE (CELULAR) --- */
@@ -322,10 +395,10 @@ h2 {
     .navbar { padding: 1rem 5%; }
     
     .hero-container { 
-        min-height: auto; 
+        min-height: auto;
         padding-top: 2rem;
         padding-bottom: 4rem;
-        flex-direction: column-reverse; /* Imagen arriba en código, pero visualmente abajo en columa */
+        flex-direction: column-reverse; 
         text-align: center;
     }
     
@@ -333,39 +406,42 @@ h2 {
     .stats-row { justify-content: center; }
     .cta-group { justify-content: center; }
     
-    .visual-side { width: 100%; min-height: 350px; }
-    .main-rocket { width: 65%; max-width: 300px; }
+    .visual-side { 
+        width: 100%; 
+        min-height: 400px; /* Aumentamos altura para que quepan las tarjetas */
+    }
+    
+    .main-rocket { width: 65%; max-width: 280px; }
     .planet-img { width: 150px; top: 0; right: 10%; }
     
-    /* Reubicar cards flotantes en móvil para que no molesten */
-    .card-1 { left: 5%; bottom: 0%; }
-    .card-2 { right: 5%; top: 5%; }
-    
     h1 { font-size: 2.5rem; }
+
+    /* REGLAS PARA QUE LAS TARJETAS APAREZCAN EN CELULAR */
+    .glass-pill.floating {
+        display: flex; /* Ahora SÍ se muestran */
+        padding: 8px 16px; /* Más pequeñitas */
+        font-size: 0.85rem;
+        border-radius: 20px;
+    }
+
+    /* Reubicamos las posiciones para pantalla chica */
+    .pos-1 { top: 0%; left: 2%; }       /* Arriba Izq */
+    .pos-2 { top: 5%; right: 2%; }      /* Arriba Der */
+    .pos-3 { bottom: 10%; left: 2%; }   /* Abajo Izq */
+    .pos-4 { bottom: 5%; right: 2%; }   /* Abajo Der */
 }
 
-/* --- FONDO ESTELAR (Solo en Hero) --- */
-.stars-container {
-    position: absolute; /* Antes era fixed */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0; /* Queda detrás del contenido del hero (que tiene z-index 10) */
-    pointer-events: none;
-    overflow: hidden;
+/* Estilo para el botón de LinkedIn en el equipo */
+.team-social {
+    margin-top: 15px;      /* Espacio arriba para separarlo del Rol */
+    font-size: 1.8rem;     /* Tamaño del logo */
+    color: white;          /* Color base blanco */
+    transition: 0.3s ease;
+    display: inline-flex;
 }
 
-.star {
-    position: absolute;
-    background: white;
-    border-radius: 50%;
-    opacity: 0.8;
-    box-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
-    animation: twinkle infinite ease-in-out;
-}
-
-@keyframes twinkle {
-    0%, 100% { opacity: 0.3; transform: scale(0.8); }
-    50% { opacity: 1; transform: scale(1.2); }
+.team-social:hover {
+    color: #0077b5;        /* Azul oficial de LinkedIn (o puedes usar var(--neon-cyan)) */
+    transform: scale(1.2); /* Crece un poquito al pasar el mouse */
+    filter: drop-shadow(0 0 8px rgba(0, 119, 181, 0.6)); /* Resplandor azul */
 }
