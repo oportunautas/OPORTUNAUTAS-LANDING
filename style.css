@@ -29,7 +29,7 @@ html, body {
     margin: 0;
     padding: 0;
     
-    /* Fuentes y colores globales */
+    /* FONT AND COLORS */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-white);
@@ -334,7 +334,7 @@ h1 {
 
 .team-card:hover {
     transform: translateY(-10px);
-    border-color: var(--neon-pink); /* Mantenemos el borde rosa al pasar el mouse para contraste */
+    border-color: var(--neon-pink);
     box-shadow: 0 10px 30px rgba(255, 0, 127, 0.2);
 }
 
@@ -435,12 +435,11 @@ h1 {
     position: absolute; background: white; border-radius: 50%; opacity: 0.8; box-shadow: 0 0 4px rgba(255, 255, 255, 0.8); animation: twinkle infinite ease-in-out;
 }
 
-/* RESPONSIVE (CELULAR) */
-/* --- RESPONSIVE (CELULAR) --- */
+/*  RESPONSIVE (CELULAR) */
 @media (max-width: 900px) {
     .navbar { padding: 1rem 5%; }
     
-    /* Contenedor principal del Hero */
+    /* CONTENEDOR PRINCIPAL */
     .hero-container { 
         min-height: auto;
         padding-top: 2rem;
@@ -450,46 +449,46 @@ h1 {
         width: 100%;      
     }
     
-    /* Títulos más chicos para que no se corten */
+    /* TITULOS CHICOS (Evita que se CORTE) */
     h1 { font-size: 2.2rem; }
 
-    /* ARREGLO DEL TÍTULO "OPORTUNIDADES DESTACADAS" */
+    /* OPORTUNIDADES DESTACADAS (FIX) */
     .opportunities-section h2 {
-        /* 1. Usamos la fuente del sistema (más angosta que Orbitron) */
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        font-weight: 900; /* Extra negrita para que impacte igual */
         
-        /* 2. Tamaño fijo y seguro */
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 900; 
+        
+        
         font-size: 1.8rem;       
         line-height: 1.1;
         
-        /* 3. Quitamos padding lateral */
+        
         padding: 0;       
         margin-bottom: 2rem;
         width: 100%;
         
-        /* 4. Seguridad total: si aún así no entra, que baje de renglón en vez de cortarse */
+        
         word-wrap: break-word; 
     }
 
     .opportunities-section h2 span.gradient-text {
         display: block;       
-        font-size: 2.2rem; /* La parte de "DESTACADAS" un poco más grande */
+        font-size: 2.2rem; 
         margin-top: 5px;    
     }
 
     /* ARREGLO DE LOS LINKS (REDES) AL FINAL */
     .grid-links {
-        /* Forzamos 2 columnas exactas (50% y 50%) para que entren las 4 en una cuadrícula 2x2 */
+        
         grid-template-columns: 1fr 1fr; 
-        gap: 10px; /* Espacio más pequeño entre tarjetas */
+        gap: 10px; 
     }
 
     .grid-card {
-        padding: 1.5rem 1rem; /* Menos relleno interno para ganar espacio */
+        padding: 1.5rem 1rem; 
     }
     
-    /* Control de esferas */
+    /* Control de ESFERAS */
     .sphere-1, .sphere-2 {
         opacity: 0.4;       
         transform: scale(0.7);
@@ -507,7 +506,7 @@ h1 {
     .main-rocket { width: 65%; max-width: 280px; }
     .planet-img { width: 150px; top: 0; right: 10%; }
     
-    /* Tarjetas flotantes */
+    /* Tarjetas FLOTANTES */
     .glass-pill.floating {
         display: flex; 
         padding: 8px 12px; 
@@ -518,25 +517,25 @@ h1 {
         justify-content: center;
     }
 
-    /* Reubicamos las posiciones para pantalla chica */
+    /* Reubicamos las POSICIONES para pantallas chicas */
     .pos-1 { top: 10%; left: 5%; }       /* Arriba Izq */
     .pos-2 { top: 5%; right: 2%; }      /* Arriba Der */
     .pos-3 { bottom: 10%; left: 2%; }   /* Abajo Izq */
     .pos-4 { bottom: 25%; right: 5%; }   /* Abajo Der */
 
-    /* Agregá esto para ocultar la barra en celular y dejar solo el touch */
+    /* Deja solo el TOUCH */
     .scrolling-wrapper {
         scrollbar-width: none; /* Firefox */
     }
     .scrolling-wrapper::-webkit-scrollbar {
         display: none; /* Chrome/Safari/Edge */
     }
-    /* Scrollbar invisible en móvil */
+    /* Scrollbar INVISIBLE en móvil */
     .scrolling-wrapper { scrollbar-width: none; }
     .scrolling-wrapper::-webkit-scrollbar { display: none; }
 }
 
-/* --- SECCIÓN OPORTUNIDADES (SLIDERS) --- */
+/* SECCIÓN OPORTUNIDADES (SLIDERS) */
 .opportunities-section {
     width: 100%;
     overflow: hidden; 
@@ -546,7 +545,7 @@ h1 {
 
 .opportunities-section h2 {
     text-align: center;
-    font-family: 'Orbitron', sans-serif; /* O la font-family que prefieras */
+    font-family: 'Orbitron', sans-serif; 
     font-size: 2.5rem;
     margin-bottom: 2rem;
     padding: 0 5%;
@@ -567,7 +566,7 @@ h1 {
     gap: 10px;
 }
 
-/* EL RIEL (Forzamos horizontalidad) */
+/* RIEL (Forzamos Horizontalidad) */
 .scrolling-wrapper {
     display: flex !important;           /* OBLIGATORIO */
     flex-direction: row !important;     /* OBLIGATORIO */
@@ -580,30 +579,30 @@ h1 {
     -webkit-overflow-scrolling: touch;
 }
 
-/* --- ESTILO SCROLLBAR PERSONALIZADO (Escritorio) --- */
+/*  ESTILO SCROLLBAR PERSONALIZADO (Escritorio) */
 
 /* El ancho/alto de la barra */
 .scrolling-wrapper::-webkit-scrollbar {
     height: 8px; /* Altura sutil */
 }
 
-/* El fondo de la barra (el carril) -> TRANSPARENTE */
+/* El fondo de la barra -> TRANSPARENTE */
 .scrolling-wrapper::-webkit-scrollbar-track {
     background: transparent; 
-    margin: 0 20px; /* Un poco de margen a los costados para que no toque bordes */
+    margin: 0 20px; 
 }
 
-/* La barra en sí (el thumb) -> REDONDEADA Y GLASS */
+/* La barra en sí (el THUMB) -> REDONDEADA Y GLASS */
 .scrolling-wrapper::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.15); /* Blanco semitransparente */
-    border-radius: 50px; /* Bien redondeada */
-    backdrop-filter: blur(5px); /* Efecto blur si el navegador lo soporta en scrollbars */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
+    background: rgba(255, 255, 255, 0.15); 
+    border-radius: 50px; 
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Al pasar el mouse por encima de la barra */
 .scrolling-wrapper::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.3); /* Se ilumina un poco */
+    background: rgba(255, 255, 255, 0.3); 
     cursor: pointer;
 }
 
