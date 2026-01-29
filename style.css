@@ -1,3 +1,11 @@
+
+.main-wrapper {
+    width: 100%;
+    overflow-x: hidden; 
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
 :root {
     --bg-color: #0d0015;
     --purple-main: #3b0a45;
@@ -14,11 +22,18 @@
     box-sizing: border-box;
 }
 
-body {
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden; /* OBLIGATORIO: Corta el excedente horizontal */
+    margin: 0;
+    padding: 0;
+    
+    /* Fuentes y colores globales */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-white);
-    overflow-x: hidden;
+    
     -webkit-font-smoothing: antialiased; 
     -moz-osx-font-smoothing: grayscale;
 }
@@ -368,6 +383,7 @@ h1 {
     transform: scale(1.2);
     filter: drop-shadow(0 0 8px rgba(0, 119, 181, 0.6));
 }
+
 /* LINKS SECTION */
 .links-section {
     padding: 4rem 5%;
@@ -420,15 +436,63 @@ h1 {
 }
 
 /* RESPONSIVE (CELULAR) */
+/* --- RESPONSIVE (CELULAR) --- */
 @media (max-width: 900px) {
     .navbar { padding: 1rem 5%; }
     
+    /* Contenedor principal del Hero */
     .hero-container { 
         min-height: auto;
         padding-top: 2rem;
         padding-bottom: 4rem;
         flex-direction: column-reverse; 
         text-align: center;
+        width: 100%;      
+    }
+    
+    /* Títulos más chicos para que no se corten */
+    h1 { font-size: 2.2rem; }
+
+    /* ARREGLO DEL TÍTULO "OPORTUNIDADES DESTACADAS" */
+    .opportunities-section h2 {
+        /* 1. Usamos la fuente del sistema (más angosta que Orbitron) */
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 900; /* Extra negrita para que impacte igual */
+        
+        /* 2. Tamaño fijo y seguro */
+        font-size: 1.8rem;       
+        line-height: 1.1;
+        
+        /* 3. Quitamos padding lateral */
+        padding: 0;       
+        margin-bottom: 2rem;
+        width: 100%;
+        
+        /* 4. Seguridad total: si aún así no entra, que baje de renglón en vez de cortarse */
+        word-wrap: break-word; 
+    }
+
+    .opportunities-section h2 span.gradient-text {
+        display: block;       
+        font-size: 2.2rem; /* La parte de "DESTACADAS" un poco más grande */
+        margin-top: 5px;    
+    }
+
+    /* ARREGLO DE LOS LINKS (REDES) AL FINAL */
+    .grid-links {
+        /* Forzamos 2 columnas exactas (50% y 50%) para que entren las 4 en una cuadrícula 2x2 */
+        grid-template-columns: 1fr 1fr; 
+        gap: 10px; /* Espacio más pequeño entre tarjetas */
+    }
+
+    .grid-card {
+        padding: 1.5rem 1rem; /* Menos relleno interno para ganar espacio */
+    }
+    
+    /* Control de esferas */
+    .sphere-1, .sphere-2 {
+        opacity: 0.4;       
+        transform: scale(0.7);
     }
     
     .content-side { padding-right: 0; margin-top: 2rem; }
@@ -437,20 +501,21 @@ h1 {
     
     .visual-side { 
         width: 100%; 
-        min-height: 400px; 
+        min-height: 400px;
     }
     
     .main-rocket { width: 65%; max-width: 280px; }
     .planet-img { width: 150px; top: 0; right: 10%; }
     
-    h1 { font-size: 2.5rem; }
-
-    /* REGLAS PARA QUE LAS TARJETAS APAREZCAN EN CELULAR */
+    /* Tarjetas flotantes */
     .glass-pill.floating {
         display: flex; 
-        padding: 8px 16px; 
-        font-size: 0.85rem;
-        border-radius: 20px;
+        padding: 8px 12px; 
+        font-size: 0.8rem;
+        border-radius: 15px;
+        max-width: 45%; 
+        white-space: nowrap; 
+        justify-content: center;
     }
 
     /* Reubicamos las posiciones para pantalla chica */
@@ -466,37 +531,9 @@ h1 {
     .scrolling-wrapper::-webkit-scrollbar {
         display: none; /* Chrome/Safari/Edge */
     }
-}
-
-
-/* Estilo para el botón de LinkedIn en el equipo */
-.team-social {
-    margin-top: 15px;      /* Espacio arriba para separarlo del Rol */
-    font-size: 1.8rem;     /* Tamaño del logo */
-    color: white;          /* Color base blanco */
-    transition: 0.3s ease;
-    display: inline-flex;
-}
-
-.team-social:hover {
-    color: #0077b5;        /* Azul oficial de LinkedIn (o puedes usar var(--neon-cyan)) */
-    transform: scale(1.2); /* Crece un poquito al pasar el mouse */
-    filter: drop-shadow(0 0 8px rgba(0, 119, 181, 0.6)); /* Resplandor azul */
-}
-
-/* --- SECCIÓN OPORTUNIDADES (SLIDERS) --- */
-team-social {
-    margin-top: 15px;
-    font-size: 1.8rem;
-    color: white;
-    transition: 0.3s ease;
-    display: inline-flex;
-}
-
-.team-social:hover {
-    color: #0077b5;
-    transform: scale(1.2);
-    filter: drop-shadow(0 0 8px rgba(0, 119, 181, 0.6));
+    /* Scrollbar invisible en móvil */
+    .scrolling-wrapper { scrollbar-width: none; }
+    .scrolling-wrapper::-webkit-scrollbar { display: none; }
 }
 
 /* --- SECCIÓN OPORTUNIDADES (SLIDERS) --- */
