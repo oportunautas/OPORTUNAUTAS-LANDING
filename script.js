@@ -48,3 +48,37 @@ function createStars() {
         container.appendChild(star);
     }
 }
+
+// Funcionalidad de "Arrastrar para scrollear" (Drag to Scroll) para PC
+const sliders = document.querySelectorAll('.scrolling-wrapper');
+
+sliders.forEach(slider => {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    slider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        slider.classList.add('active'); // Opcional: para cambiar cursor
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+    });
+
+    slider.addEventListener('mouseleave', () => {
+        isDown = false;
+        slider.classList.remove('active');
+    });
+
+    slider.addEventListener('mouseup', () => {
+        isDown = false;
+        slider.classList.remove('active');
+    });
+
+    slider.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 2; // El *2 determina la velocidad del scroll
+        slider.scrollLeft = scrollLeft - walk;
+    });
+});

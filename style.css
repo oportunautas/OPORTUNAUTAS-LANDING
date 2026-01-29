@@ -429,7 +429,16 @@ h1 {
     .pos-2 { top: 5%; right: 2%; }      /* Arriba Der */
     .pos-3 { bottom: 10%; left: 2%; }   /* Abajo Izq */
     .pos-4 { bottom: 5%; right: 2%; }   /* Abajo Der */
+
+    /* Agregá esto para ocultar la barra en celular y dejar solo el touch */
+    .scrolling-wrapper {
+        scrollbar-width: none; /* Firefox */
+    }
+    .scrolling-wrapper::-webkit-scrollbar {
+        display: none; /* Chrome/Safari/Edge */
+    }
 }
+
 
 /* Estilo para el botón de LinkedIn en el equipo */
 .team-social {
@@ -444,4 +453,169 @@ h1 {
     color: #0077b5;        /* Azul oficial de LinkedIn (o puedes usar var(--neon-cyan)) */
     transform: scale(1.2); /* Crece un poquito al pasar el mouse */
     filter: drop-shadow(0 0 8px rgba(0, 119, 181, 0.6)); /* Resplandor azul */
+}
+
+/* --- SECCIÓN OPORTUNIDADES (SLIDERS) --- */
+team-social {
+    margin-top: 15px;
+    font-size: 1.8rem;
+    color: white;
+    transition: 0.3s ease;
+    display: inline-flex;
+}
+
+.team-social:hover {
+    color: #0077b5;
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 8px rgba(0, 119, 181, 0.6));
+}
+
+/* --- SECCIÓN OPORTUNIDADES (SLIDERS) --- */
+.opportunities-section {
+    width: 100%;
+    overflow: hidden; 
+    padding: 2rem 0 4rem 0;
+    position: relative;
+}
+
+.opportunities-section h2 {
+    text-align: center;
+    font-family: 'Orbitron', sans-serif; /* O la font-family que prefieras */
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    padding: 0 5%;
+}
+
+.slider-container {
+    margin-bottom: 3rem;
+    padding-left: 5%;
+    width: 100%;
+}
+
+.slider-container h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--neon-cyan);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* EL RIEL (Forzamos horizontalidad) */
+.scrolling-wrapper {
+    display: flex !important;           /* OBLIGATORIO */
+    flex-direction: row !important;     /* OBLIGATORIO */
+    flex-wrap: nowrap !important;       /* PROHIBIDO APILARSE */
+    overflow-x: auto !important;
+    gap: 20px;
+    padding: 10px 5%; 
+    width: 100%;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* --- ESTILO SCROLLBAR PERSONALIZADO (Escritorio) --- */
+
+/* El ancho/alto de la barra */
+.scrolling-wrapper::-webkit-scrollbar {
+    height: 8px; /* Altura sutil */
+}
+
+/* El fondo de la barra (el carril) -> TRANSPARENTE */
+.scrolling-wrapper::-webkit-scrollbar-track {
+    background: transparent; 
+    margin: 0 20px; /* Un poco de margen a los costados para que no toque bordes */
+}
+
+/* La barra en sí (el thumb) -> REDONDEADA Y GLASS */
+.scrolling-wrapper::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15); /* Blanco semitransparente */
+    border-radius: 50px; /* Bien redondeada */
+    backdrop-filter: blur(5px); /* Efecto blur si el navegador lo soporta en scrollbars */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
+}
+
+/* Al pasar el mouse por encima de la barra */
+.scrolling-wrapper::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3); /* Se ilumina un poco */
+    cursor: pointer;
+}
+
+/* LA TARJETA INDIVIDUAL */
+.opp-card {
+    flex: 0 0 auto !important; /* NO APLASTARSE */
+    width: 280px !important;   /* ANCHO FIJO */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    margin-right: 5px;
+    
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    
+    text-decoration: none;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.opp-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #00f3ff;
+}
+
+.logo-wrapper {
+    width: 50px;
+    height: 50px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.logo-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.fallback-icon {
+    font-size: 1.5rem;
+    color: rgba(255,255,255,0.8);
+    display: none;
+}
+
+.opp-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.opp-info h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+    color: white;
+}
+
+.opp-info span {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.6);
+}
+
+.arrow-icon {
+    color: var(--neon-pink);
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.opp-card:hover .arrow-icon {
+    opacity: 1;
+    transform: translateX(3px);
 }
