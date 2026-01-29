@@ -23,7 +23,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* --- FONDO AMBIENT --- */
+/* FONDO */
 .blur-sphere {
     position: absolute;
     border-radius: 50%;
@@ -49,7 +49,7 @@ body {
     opacity: 0.8;
 }
 
-/* --- NAVBAR --- */
+/* NAVBAR */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -92,7 +92,7 @@ body {
 
 .socials-nav a:hover { color: var(--neon-cyan); }
 
-/* --- HERO SECTION --- */
+/* HERO SECTION  */
 .hero-container {
     min-height: calc(100vh - 80px);
     display: flex;
@@ -141,7 +141,7 @@ h1 {
     font-size: 1rem;
 }
 
-/* --- BOTONES --- */
+/* BOTONES  */
 .cta-group {
     display: flex;
     gap: 1rem;
@@ -165,7 +165,7 @@ h1 {
 
 .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 25px rgba(176, 0, 255, 0.5); }
 
-/* Botones Glass */
+/*Botones GLASS*/
 .btn-glass {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
@@ -186,7 +186,7 @@ h1 {
     box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
 }
 
-/* Estadísticas */
+/* ESTADISTICAS */
 .stats-row {
     display: flex;
     gap: 2.5rem;
@@ -197,7 +197,7 @@ h1 {
 .stat-item h3 { font-size: 1.5rem;}
 .stat-item p { font-size: 0.8rem; color: rgba(255,255,255,0.5); letter-spacing: 1px; }
 
-/* --- COLUMNA DERECHA (VISUAL) --- */
+/* COLUMNA DERECHA (VISUAL) */
 .visual-side {
     flex: 1;
     min-width: 300px;
@@ -241,7 +241,7 @@ h1 {
     animation: floatRocket 6s ease-in-out infinite;
 }
 
-/* --- TARJETAS FLOTANTES --- */
+/* TARJETAS FLOTANTES */
 .glass-pill {
     background: var(--glass-bg);
     backdrop-filter: blur(12px);
@@ -265,18 +265,17 @@ h1 {
     animation: floatCard 6s ease-in-out infinite;
 }
 
-/* Posiciones Desktop */
+/* Posiciones DESKTOP */
 .pos-1 { top: 15%; left: 0%; animation-delay: 0s; }
 .pos-2 { top: 20%; right: 0%; animation-delay: 1.5s; }
 .pos-3 { bottom: 25%; left: 5%; animation-delay: 0.5s; }
 .pos-4 { bottom: 15%; right: 10%; animation-delay: 2s; }
 
-/* AQUÍ EL CAMBIO: Iconos BLANCOS en lugar de cyan */
 .glass-pill i { 
     color: white; 
 }
 
-/* --- SECCIÓN EQUIPO --- */
+/* SECCIÓN EQUIPO */
 .team-section {
     padding: 4rem 5%;
     text-align: center;
@@ -285,12 +284,16 @@ h1 {
 }
 
 .team-section h2 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2rem;
-    color: white;
-    text-shadow: 0 0 15px var(--neon-pink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    
+    font-weight: 800; 
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    
+    color: #ffffff; 
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
     margin-bottom: 3rem;
-    letter-spacing: 2px;
+    letter-spacing: 1px; 
 }
 
 .team-grid {
@@ -316,7 +319,7 @@ h1 {
 
 .team-card:hover {
     transform: translateY(-10px);
-    border-color: var(--neon-pink);
+    border-color: var(--neon-pink); /* Mantenemos el borde rosa al pasar el mouse para contraste */
     box-shadow: 0 10px 30px rgba(255, 0, 127, 0.2);
 }
 
@@ -336,10 +339,36 @@ h1 {
 .member-photo img { width: 100%; height: 100%; object-fit: cover; }
 .member-photo i { font-size: 2.5rem; color: rgba(255, 255, 255, 0.5); }
 
-.team-card h3 { font-size: 1.1rem; margin-bottom: 5px; color: white; }
-.role { font-size: 0.85rem; color: var(--neon-pink); font-weight: 300; letter-spacing: 1px; }
+.team-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: #ffffff; 
+}
 
-/* --- LINKS SECTION --- */
+
+.role {
+    font-size: 0.85rem;
+    color: #ffffff;      
+    opacity: 0.8;        
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* Botón LinkedIn (Blanco) */
+.team-social {
+    margin-top: 15px;
+    font-size: 1.8rem;
+    color: #ffffff;
+    transition: 0.3s ease;
+    display: inline-flex;
+}
+
+.team-social:hover {
+    color: #0077b5; /* Azul LinkedIn al pasar el mouse */
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 8px rgba(0, 119, 181, 0.6));
+}
+/* LINKS SECTION */
 .links-section {
     padding: 4rem 5%;
     text-align: center;
@@ -374,14 +403,14 @@ h1 {
 .grid-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-8px); border-color: var(--neon-pink); box-shadow: 0 10px 30px rgba(255, 0, 127, 0.2); }
 .grid-card:hover i { color: var(--neon-pink); transform: scale(1.1); }
 
-/* --- ANIMACIONES --- */
+/* ANIMACIONES */
 @keyframes floatRocket { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
 @keyframes floatPlanet { 0% { transform: translateY(0) rotate(0deg); } 100% { transform: translateY(-15px) rotate(5deg); } }
 @keyframes floatCard { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.3; } 50% { transform: scale(1.1); opacity: 0.5; } }
 @keyframes twinkle { 0%, 100% { opacity: 0.3; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1.2); } }
 
-/* --- FONDO ESTELAR --- */
+/* FONDO ESTELAR */
 .stars-container {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; overflow: hidden;
@@ -390,7 +419,7 @@ h1 {
     position: absolute; background: white; border-radius: 50%; opacity: 0.8; box-shadow: 0 0 4px rgba(255, 255, 255, 0.8); animation: twinkle infinite ease-in-out;
 }
 
-/* --- RESPONSIVE (CELULAR) --- */
+/* RESPONSIVE (CELULAR) */
 @media (max-width: 900px) {
     .navbar { padding: 1rem 5%; }
     
@@ -408,7 +437,7 @@ h1 {
     
     .visual-side { 
         width: 100%; 
-        min-height: 400px; /* Aumentamos altura para que quepan las tarjetas */
+        min-height: 400px; 
     }
     
     .main-rocket { width: 65%; max-width: 280px; }
@@ -418,8 +447,8 @@ h1 {
 
     /* REGLAS PARA QUE LAS TARJETAS APAREZCAN EN CELULAR */
     .glass-pill.floating {
-        display: flex; /* Ahora SÍ se muestran */
-        padding: 8px 16px; /* Más pequeñitas */
+        display: flex; 
+        padding: 8px 16px; 
         font-size: 0.85rem;
         border-radius: 20px;
     }
