@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Tu animación de entrada original
+    // ANIMACION
     const hero = document.querySelector('.hero-container');
-    if(hero) { // Pequeña validación por si acaso
+    if(hero) { // Validacion
         hero.style.opacity = 0;
         setTimeout(() => {
             hero.style.transition = "opacity 1s ease-in-out";
@@ -9,26 +9,25 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 100);
     }
 
-    // 2. Función para crear el ambiente estelar
+    // CREA el Ambiente
     createStars();
 
     console.log("Oportunautas: Sistema Frontend Iniciado 🚀");
 });
 
 function createStars() {
-    // Buscamos SOLO el contenedor principal
+    // CONT. Principal del Hero
     const heroSection = document.querySelector('.hero-container');
     
-    // Si por alguna razón no existe, frenamos para evitar errores
+    // Por CUALQUIER Error 
     if (!heroSection) return;
 
     const container = document.createElement('div');
     container.className = 'stars-container';
     
-    // Lo insertamos al principio del hero
     heroSection.prepend(container); 
 
-    const starCount = 300; // Ajustá la cantidad a tu gusto
+    const starCount = 300; // SE AJUSTA A GUSTO
 
     for (let i = 0; i < starCount; i++) {
         const star = document.createElement('div');
@@ -49,7 +48,7 @@ function createStars() {
     }
 }
 
-// Funcionalidad de "Arrastrar para scrollear" (Drag to Scroll) para PC
+// DRAG SCROLLING
 const sliders = document.querySelectorAll('.scrolling-wrapper');
 
 sliders.forEach(slider => {
@@ -59,7 +58,7 @@ sliders.forEach(slider => {
 
     slider.addEventListener('mousedown', (e) => {
         isDown = true;
-        slider.classList.add('active'); // Opcional: para cambiar cursor
+        slider.classList.add('active'); 
         startX = e.pageX - slider.offsetLeft;
         scrollLeft = slider.scrollLeft;
     });
@@ -78,7 +77,7 @@ sliders.forEach(slider => {
         if (!isDown) return;
         e.preventDefault();
         const x = e.pageX - slider.offsetLeft;
-        const walk = (x - startX) * 2; // El *2 determina la velocidad del scroll
+        const walk = (x - startX) * 2; 
         slider.scrollLeft = scrollLeft - walk;
     });
 });
